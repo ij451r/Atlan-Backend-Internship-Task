@@ -1,4 +1,4 @@
-An Application(TaskManager) is build to interact with the processes of other application, Which keeps track of the processes.
+An Application(TaskManager) is build to interact with the processes of other application, which keeps track of the processes.
 
 
 **Installation and Running** <br>
