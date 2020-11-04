@@ -1,0 +1,27 @@
+{% extends "Filehandler/base.html"%}
+{% block content%}
+
+<h1 style="padding-top: 0.8rem">Dashboard</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">EmpId</th>
+      <th scope="col">Name</th>
+      <th scope="col">DoB</th>
+      <th scope="col">State</th>
+    </tr>
+  </thead><tbody>
+{% for item in Items  %}
+	{% if CurrentTask.status == running %} <!--This is where the task will terminate-->
+		<tr>
+	      <th scope="row">{{item.EmpId}}</th>
+	      <td>{{item.Name}}</td>
+		  <td>{{item.DoB}}</td>
+		  <td>{{item.State}}</td>
+		 </tr>
+	{% endif %}{% endfor %}
+	
+	</tbody></table>
+
+
+{%endblock content%}	

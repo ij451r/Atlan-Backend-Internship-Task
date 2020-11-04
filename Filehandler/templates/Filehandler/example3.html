@@ -1,0 +1,57 @@
+{% extends "Filehandler/base.html"%}
+{% block content%}
+
+{% load crispy_forms_tags %}
+
+<div class='container-section'>
+	<form method='POST' enctype = "multipart/form-data">
+		{% csrf_token %}
+		<fieldset class='form-group'>
+			<legend class='border-bottom mb-4' style="padding-top: 0.8rem">
+				Upload csv document to create teams with employees that were uploaded			
+			</legend>
+			{{ form | crispy }}	
+		</fieldset>
+		
+		<div class="form-group">                    
+		    <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;">
+		         <button class="btn btn-primary"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;"></span>Upload </button>
+		    </div> 
+		</div>
+	</form>
+	<div class="row">
+		<p>Hey, welcome to the portal.<br>
+		A user can upload a <b>csv file with the below expectations</b> here which would be processed and its entries would be saved to a database <br> 
+		The csv file needs to have <b>3 columns</b> which are teamid, TeamLeader and TeamMember object both from Employee table of example1. 
+		<br>
+		Please proceed to this example only after completing Example1 and uploading the suggested file or a suitable dummy file should be created for this purpose and if the suggested files are being used, then at example1 upload upto 250 entries to avoid 404 errors
+		<a href="https://drive.google.com/file/d/1OHjcgrNFbCEELhkNXATfN7udWWPXb9ir/view?usp=sharing">Download a Sample file here.</a><br>
+		An API GET Endpoint is added to the project so that the user can have a clear picture on how much of the data is entered<br>
+		<b>http://localhost:8000/example3/Jasir3</b><br>
+		This process is then monitered by a task manager, TaskInitiator which is a unique field will be your key to control your tasks.
+		<br>
+		<br>
+		Sample Get Endpoint to Employee entries would look like<br> 
+		<b>http://localhost:8000/example1/Jasir3</b><br>
+		<br>
+		Sample Patch Endpoint to pause or terminate a process would be<br>
+		<b>http://localhost:8000/update/Jasir3</b><br>
+		This would show what Task it is operating on and its current status. Here at the Portal the value of status can be written to <b>'Pause' or 'Terminate'</b><br><br>like <br>
+		{<br>
+    		"status": "running"<br>
+		}<br>
+		
+		please use <b> 'Pause' or 'Terminate' </b> to drive the processes. Otherwise the function autocorrects back to running. 
+		
+		<b>Please check at the Get Endpoint to see if the process has stopped.</b><br>
+		You can resume your task by going to <br>
+		http://localhost:8000/resume/Jasir3<br>
+		You can delete your task by going to <br>
+		http://localhost:8000/delete/Jasir3<br>
+		<br>
+		</p> 		
+	</div>
+
+<div>
+
+{%endblock content%}	

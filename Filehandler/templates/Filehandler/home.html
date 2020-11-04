@@ -1,0 +1,20 @@
+{% extends "Filehandler/base.html"%}
+{% block content%}
+
+{% load crispy_forms_tags %}
+
+<div class='container-section'>
+	
+	<div class="row" style="padding-top: 0.8rem">
+		<br> <p>Hello There!<br><br>
+		This project incorporates methods on how the <a href="#">three examples</a>  could be solved. <br> 
+		For further demonstrations please forward to  :-<br>
+		
+		<a href="{% url 'Example1' %}"> <b>domain.com/example1<br></a>		
+		<a href="{% url 'Example2' %}"> domain.com/example2<br></a>
+		<a href="{% url 'Example3' %}"> domain.com/example3<br></a></b>
+	</div>
+
+<div>
+
+{%endblock content%}	
